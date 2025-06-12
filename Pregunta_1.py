@@ -309,6 +309,19 @@ plt.ylabel('Loss')
 plt.legend()
 plt.savefig("evidencia_aumentation/grafico_comparativo.png")
 
+# Graficar rendimientos comparativos
+plt.figure(figsize=(10,6))
+plt.plot(history_mse.history['accuracy'], label='Train Loss MSE')
+plt.plot(history_mse.history['val_accuracy'], label='Val Loss MSE')
+plt.plot(history_mae.history['accuracy'], label='Train Loss MAE')
+plt.plot(history_mae.history['val_accuracy'], label='Val Loss MAE')
+plt.title('Comparacion de rendimiento durante el entrenamiento')
+plt.xlabel('Epoca')
+plt.ylabel('Rendimiento')
+plt.legend()
+plt.savefig("evidencia/grafico_comparativo_rendimiento.png")
+plt.show()
+
 # Evaluar MSE promedio sobre test para cada modelo
 def mse_promedio_test(modelo, x_test_gray, x_test_color):
     x_pred = modelo.predict(x_test_gray)
